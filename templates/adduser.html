@@ -1,0 +1,32 @@
+<div  class="container-xl">
+    <form method="POST" class="form-signin">
+        {{ form.hidden_tag() }}
+        <h1 class="h3 mb-3 font-weight-normal">
+            博客管理员addusers
+        </h1>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+             {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+             {% endfor %}
+          {% endif %}
+        {% endwith %}
+        
+        <br>
+        {{ form.addusername.label() }}
+        {{ form.addusername(class="form-adduser", placeholder="输入用户名") }}
+
+        {{ form.addpwd.label() }}
+        {{ form.addpwd(class="form-addpwd", placeholder="输入密码") }}
+
+        <br>
+
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+    </form>
+</div>
